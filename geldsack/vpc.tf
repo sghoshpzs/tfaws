@@ -22,7 +22,7 @@ resource "aws_subnet" "geldsack_private_subnets" {
 
     cidr_block = element(var.private_sunbet_cidr, count.index)
     tags = {
-        Name = "${var.vpc_name}-private-subnet-${count.index + 1}"
+        Name = length(var.private_sunbet_cidr) > 0 ? "${var.vpc_name}-private-subnet-${count.index + 1}" : "${var.vpc_name}-private-subnet"
     }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "geldsack_public_subnets" {
 
     cidr_block = element(var.public_sunbet_cidr, count.index)
     tags = {
-        Name = "${var.vpc_name}-private-subnet-${count.index + 1}"
+        Name = length(var.public_sunbet_cidr) > 0 ? "${var.vpc_name}-public-subnet-${count.index + 1}" : "${var.vpc_name}-public-subnet"
     }
 }
 
