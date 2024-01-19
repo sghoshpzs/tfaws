@@ -16,22 +16,22 @@ output "vpc_id" {
 #--------------------------------AWS Subnets-------------------------------#
 
 resource "aws_subnet" "geldsack_private_subnets" {
-    count = length(var.private_sunbet_cidr)
-    vpc_id = aws_vpc.geldsack.id
-    availability_zone = element(var.private_subnet_az, count.index)
-
-    cidr_block = element(var.private_sunbet_cidr, count.index)
+    count                   = length(var.private_sunbet_cidr)
+    vpc_id                  = aws_vpc.geldsack.id
+    availability_zone       = element(var.private_subnet_az, count.index)
+    map_public_ip_on_launch = false
+    cidr_block              = element(var.private_sunbet_cidr, count.index)
     tags = {
         Name = length(var.private_sunbet_cidr) > 1 ? "${var.vpc_name}-private-subnet-${count.index + 1}" : "${var.vpc_name}-private-subnet"
     }
 }
 
 resource "aws_subnet" "geldsack_public_subnets" {
-    count = length(var.public_sunbet_cidr)
-    vpc_id = aws_vpc.geldsack.id
-    availability_zone = element(var.public_subnet_az, count.index)
-
-    cidr_block = element(var.public_sunbet_cidr, count.index)
+    count                   = length(var.public_sunbet_cidr)
+    vpc_id                  = aws_vpc.geldsack.id
+    availability_zone       = element(var.public_subnet_az, count.index)
+    map_public_ip_on_launch = true
+    cidr_block              = element(var.public_sunbet_cidr, count.index)
     tags = {
         Name = length(var.public_sunbet_cidr) > 1 ? "${var.vpc_name}-public-subnet-${count.index + 1}" : "${var.vpc_name}-public-subnet"
     }
@@ -93,7 +93,7 @@ resource "aws_security_group_rule" "geldsack_sg_ingress_rules" {
     to_port = var.sg_ingress_ports[count.index][1] 
     protocol = var.sg_ingress_ports[count.index][2]
     description = var.sg_ingress_ports[count.index][3]
-    cidr_blocks = [aws_vpc.geldsack.cidr_block]
+    cidr_blocks = ["0.0.0.0/0"]
     security_group_id = aws_security_group.geldsack_sg.id
 }
 
