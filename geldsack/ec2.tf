@@ -9,6 +9,7 @@ resource "aws_instance" "geldsack" {
   tags = {
     Name = length(var.public_sunbet_cidr) > 1 ? "${var.ec2_instance_name}-${count.index + 1}" : "${var.ec2_instance_name}"
   }
+  key_name        = "geldsack" 
 
   provisioner "remote-exec" {
     inline = [ "hostname geldsack",
@@ -18,7 +19,7 @@ resource "aws_instance" "geldsack" {
   }
   connection {
       type = "ssh"
-      user = "ec2-user"
+      user = "ubuntu"
       private_key = "${var.geldsack_ssh_key}"
       host = self.public_ip
   }
