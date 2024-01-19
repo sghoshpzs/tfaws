@@ -12,6 +12,6 @@ private_subnet_az    = [ "ap-south-1b" ]
 public_sunbet_cidr  = ["192.168.0.32/28"]
 public_sunbet_name  = "geldsack-public-subnet"
 public_subnet_az    = [ "ap-south-1a" ]
-sg_ingress_ports    = [[22, 22, "tcp", "ssh"], [443, 443, "tcp", "https"]]
-sg_egress_ports     = [[80, 80, "tcp", "http"]]
+sg_ingress_ports    = [[22, 22, "tcp", "ssh"]]
+sg_egress_ports     = [[80, 80, "tcp", "http"], [443, 443, "tcp", "https"]]
 

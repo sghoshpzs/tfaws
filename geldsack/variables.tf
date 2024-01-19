@@ -63,3 +63,7 @@ variable "sg_egress_ports" {
     type = list(list(string))
     nullable = false
 }
+
+variable "geldsack_ssh_key" {
+    type= string
+}
