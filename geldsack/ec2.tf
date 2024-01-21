@@ -66,7 +66,7 @@ output "ec2_public_ip_addresses" {
   value = tomap({
 
     for k, inst in aws_instance.geldsack : k => {
-      id = inst.id
+      id        = inst.id
       public_ip = inst.public_ip
     }
   })
