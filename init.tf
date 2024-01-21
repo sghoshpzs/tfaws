@@ -29,7 +29,11 @@ module "geldsack" {
   geldsack_ssh_key    = var.geldsack_ssh_key
 }
 
-output "vpc_id" {
-  value = module.geldsack.vpc_id
-}
+# output "vpc_id" {
+#   value = module.geldsack.vpc_id
+# }
 
+output "ec2_public_ip_address" {
+  
+  value = module.geldsack.ec2_public_ip_addresses
+}

@@ -69,10 +69,10 @@ resource "aws_route_table" "geldsack_public_route_table" {
 }
 
 resource "aws_route_table_association" "geldsack_public_subnet_association_with_rt"{
-    count = length(var.public_sunbet_cidr)
+    count           = length(var.public_sunbet_cidr)
     
-    route_table_id = aws_route_table.geldsack_public_route_table.id
-    subnet_id = element(aws_subnet.geldsack_public_subnets[*].id, count.index)
+    route_table_id  = aws_route_table.geldsack_public_route_table.id
+    subnet_id       = element(aws_subnet.geldsack_public_subnets[*].id, count.index)
 }
 
 #--------------------------------Security Group----------------------------#
@@ -87,25 +87,25 @@ resource "aws_security_group" "geldsack_sg" {
 }
 
 resource "aws_security_group_rule" "geldsack_sg_ingress_rules" {
-    count = length(var.sg_ingress_ports)
-    type = "ingress"
-    from_port = var.sg_ingress_ports[count.index][0] 
-    to_port = var.sg_ingress_ports[count.index][1] 
-    protocol = var.sg_ingress_ports[count.index][2]
-    description = var.sg_ingress_ports[count.index][3]
-    cidr_blocks = ["0.0.0.0/0"]
-    security_group_id = aws_security_group.geldsack_sg.id
+    count               = length(var.sg_ingress_ports)
+    type                = "ingress"
+    from_port           = var.sg_ingress_ports[count.index][0] 
+    to_port             = var.sg_ingress_ports[count.index][1] 
+    protocol            = var.sg_ingress_ports[count.index][2]
+    description         = var.sg_ingress_ports[count.index][3]
+    cidr_blocks         = ["0.0.0.0/0"]
+    security_group_id   = aws_security_group.geldsack_sg.id
 }
 
 resource "aws_security_group_rule" "geldsack_sg_egress_rules" {
-    count = length(var.sg_egress_ports)
-    type = "egress"
-    from_port = var.sg_egress_ports[count.index][0] 
-    to_port = var.sg_egress_ports[count.index][1] 
-    protocol = var.sg_egress_ports[count.index][2]
-    description = var.sg_egress_ports[count.index][3]
-    cidr_blocks = ["0.0.0.0/0"]
-    security_group_id = aws_security_group.geldsack_sg.id
+    count               = length(var.sg_egress_ports)
+    type                = "egress"
+    from_port           = var.sg_egress_ports[count.index][0] 
+    to_port             = var.sg_egress_ports[count.index][1] 
+    protocol            = var.sg_egress_ports[count.index][2]
+    description         = var.sg_egress_ports[count.index][3]
+    cidr_blocks         = ["0.0.0.0/0"]
+    security_group_id   = aws_security_group.geldsack_sg.id
 }
 
 #--------------------------------------------------------------------------#

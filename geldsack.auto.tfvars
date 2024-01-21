@@ -2,7 +2,7 @@
 
 
 ami                 = "ami-03f4878755434977f"
-instance_type       = "t2.micro"
+instance_type       = "t3.micro"
 ec2_instance_name   = "geldsack"
 vpc_name            = "geldsack"
 vpc_cidr            = "192.168.0.0/24"
