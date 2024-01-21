@@ -1,8 +1,10 @@
 name: "Deploy Intfastructure"
 
 on:
+  push:
+    branches: [ "v1" ]
   pull_request:
-    
+    branches: [ "v1" ]    
 
 env:
   TF_CLOUD_ORGANIZATION: "geldsack"
