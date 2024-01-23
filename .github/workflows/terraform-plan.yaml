@@ -1,0 +1,30 @@
+name: "Deploy Intfastructure"
+
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  TF_CLOUD_ORGANIZATION: "geldsack"
+  TF_WORKSPACE: "aws"
+  TF_TOKEN_app_terraform_io: "${{ secrets.TF_API_TOKEN }}"
+  CONFIG_DIRECTORY: "./"
+
+jobs:
+  terraform:
+    name: "Terraform Plan"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      
+      # - uses: hashicorp/setup-terraform@v3
+      
+      - run: terraform init
+
+      - id: validate
+        run: terraform validate -no-color
+
+      - id: plan
+        run: terraform plan -no-color
