@@ -1,4 +1,4 @@
-name: "Deploy Intfastructure"
+name: "Terraform Plan"
 
 on:
   push:

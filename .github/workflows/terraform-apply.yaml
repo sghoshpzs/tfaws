@@ -1,4 +1,4 @@
-name: "Deploy Intfastructure"
+name: "Terraform Apply"
 
 on:
   schedule:
