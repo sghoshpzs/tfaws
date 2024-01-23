@@ -1,8 +1,8 @@
 name: "Deploy Intfastructure"
 
 on:
-  push:
-    branches: [ "master" ]
+  schedule:
+  - cron: '0 17 * * *'  
 
 env:
   TF_CLOUD_ORGANIZATION: "geldsack"
@@ -21,10 +21,8 @@ jobs:
       
       # - uses: hashicorp/setup-terraform@v3
       
-      - run: terraform init
-
       - id: validate
         run: terraform validate -no-color
 
-      - id: plan
-        run: terraform plan -no-color
+      - id: apply
+        run: terraform apply --auto-approve
