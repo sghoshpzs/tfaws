@@ -2,7 +2,7 @@ name: "Terraform Apply"
 
 on:
   schedule:
-  - cron: '0 17 * * *'  
+  - cron: '0 10 * * *'  
 
 env:
   TF_CLOUD_ORGANIZATION: "geldsack"
@@ -20,6 +20,8 @@ jobs:
       - uses: actions/checkout@v4
       
       # - uses: hashicorp/setup-terraform@v3
+
+      - run: terraform init
       
       - id: validate
         run: terraform validate -no-color
