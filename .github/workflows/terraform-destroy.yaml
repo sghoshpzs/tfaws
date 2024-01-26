@@ -1,8 +1,8 @@
-name: "Terraform Apply"
+name: "Terraform Destroy"
 
 on:
   schedule:
-  - cron: '30 02 * * *'  
+  - cron: '00 10 * * *'  
 
 env:
   TF_CLOUD_ORGANIZATION: "geldsack"
@@ -22,9 +22,6 @@ jobs:
       # - uses: hashicorp/setup-terraform@v3
 
       - run: terraform init
-      
-      - id: validate
-        run: terraform validate -no-color
-
+    
       - id: apply
-        run: terraform apply --auto-approve
+        run: terraform destroy --auto-approve
