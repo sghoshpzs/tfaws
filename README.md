@@ -1,5 +1,6 @@
 # <span style="color: blue">Infrastructure Provisioning for Geldsack </span>
 [![](https://img.shields.io/badge/Terraform-blue?style=for-the-badge)](https://github.com/hamzamohdzubair/redant)
+[![](https://img.shields.io/badge/AWS-yellow?style=for-the-badge)](https://docs.rs/crate/redant/latest)
 
 ## <span style="color: blue"> Description </span>
 
