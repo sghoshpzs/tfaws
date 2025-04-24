@@ -13,7 +13,7 @@ This project is created for provisioning the AWS infrastructre for running Gelds
 
 Following feature will be configured in the launched EC2 instance-
 
-#### 1. Update Amazon Linux & download required binaries
+#### ![#1589F0](https://placehold.co/10x10/1589F0/1589F0.png) Update Amazon Linux & download required binaries
 
 ```bash
 sudo yum update -y
@@ -21,7 +21,7 @@ sudo yum install -y docker
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 ```
 
-#### 2. Get root privilege
+#### ![#1589F0](https://placehold.co/10x10/1589F0/1589F0.png) Get root privilege
 
 ```bash
 sudo usermod -aG wheel ec2-user
@@ -29,11 +29,11 @@ sudo usermod -aG docker ec2-user
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-#### 3. Get secrets from Hasicorp Vault
+#### ![#1589F0](https://placehold.co/10x10/1589F0/1589F0.png) Get secrets from Hasicorp Vault
 
 
 
-#### 4. Start services
+#### ![#1589F0](https://placehold.co/10x10/1589F0/1589F0.png) Start services
 
 ```bash
 systemctl start docker
@@ -42,7 +42,7 @@ docker pull selenium:latest
 docker pull sghoshpzs/geldsack:v3
 ```
 
-#### 5. Create required folders
+#### ![#1589F0](https://placehold.co/10x10/1589F0/1589F0.png) Create required folders
 ```bash
 mkdir geldsack
 mkdir geldsack/configmaps
@@ -50,7 +50,7 @@ mkdir geldsack/secrets
 mkdir geldsack/log
 ```
 
-#### 6. Running Docker Compose File
+#### ![#1589F0](https://placehold.co/10x10/1589F0/1589F0.png) Running Docker Compose File
 
 ```yaml
 # docker-compose file
