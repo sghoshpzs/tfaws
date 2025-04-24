@@ -1,17 +1,3 @@
-variable "ami"{
-    type = string
-    nullable = false
-}
-
-variable "instance_type"{
-    type = string
-    nullable = false
-}
-
-variable "ec2_instance_name"{
-    type = string
-    nullable = false
-}
 
 variable "vpc_name"{
     type = string
@@ -62,8 +48,4 @@ variable "sg_ingress_ports" {
 variable "sg_egress_ports" {
     type = list(list(string))
     nullable = false
-}
-
-variable "geldsack_ssh_key" {
-    type= string
 }
